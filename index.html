@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VR homework based on A-Frame</title>
+    <meta name="HW" content="VR homework based on A-Frame">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.7/howler.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Asset management system. -->
+      <a-assets>
+        <a-asset-item id="drum-kit" src=""></a-asset-item>
+        <audio id="home" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/story.mp3" preload="auto"></audio>
+      </a-assets>
+      
+      <!-- Scene. -->
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-box position="0 10 -2 " color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+      
+      <a-entity sound="src: #home"></a-entity>
+      <a-camera> <a-cursor></a-cursor></a-camera>
+    </a-scene>
+  </body>
+</html>
