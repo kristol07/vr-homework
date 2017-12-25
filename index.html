@@ -18,6 +18,7 @@
       <a-assets timeout="1000">
         <!-- a-asset-item id="drum-kit" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-set/scene.gltf"></a-asset-item -->
         <audio id="home" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/story.mp3" preload="auto"></audio>
+        <img id="drum-texture" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-kit-threejs/archmodels67_22_cymbal_bump.jpg">
       </a-assets>
       
       <!-- Scene. -->      
@@ -33,11 +34,11 @@
       <a-circle radius="0.2" rotation="-90 0 0" position="1.2 1.6 -2"></a-circle>
       <a-circle radius="0.25" rotation="-90 0 0" position="1.4 1.8 -1.2"></a-circle>
       
-      <a-cylinder id="drum1" color="#78552B" height="0.5" radius="0.2" position="-0.4 0.8 -1.4"></a-cylinder>
-      <a-cylinder id="drum2" color="#78552B" height="0.6" radius="0.3" position="0.3 0.4 -1.6" rotation="-90 20 0"></a-cylinder>
-      <a-cylinder id="drum2-1" color="#78552B" height="0.4" radius="0.2" position="0.1 0.95 -1.8" rotation="-20 -20 0"></a-cylinder>
-      <a-cylinder id="drum2-2" color="#78552B" height="0.4" radius="0.22" position="0.6 0.95 -1.6" rotation="-20 10 0"></a-cylinder>
-      <a-cylinder id="drum3" color="#78552B" height="0.7" radius="0.33" position="1 0.4 -1"></a-cylinder>
+      <a-cylinder id="drum1" src="#drum-texture" color="#78552B" height="0.5" radius="0.2" position="-0.4 0.8 -1.4"></a-cylinder>
+      <a-cylinder id="drum2" src="#drum-texture" color="#78552B" height="0.6" radius="0.3" position="0.3 0.4 -1.6" rotation="-90 20 0"></a-cylinder>
+      <a-cylinder id="drum2-1" src="#drum-texture" color="#78552B" height="0.4" radius="0.2" position="0.1 0.95 -1.8" rotation="-20 -20 0"></a-cylinder>
+      <a-cylinder id="drum2-2" src="#drum-texture" color="#78552B" height="0.4" radius="0.22" position="0.6 0.95 -1.6" rotation="-20 10 0"></a-cylinder>
+      <a-cylinder id="drum3" src="#drum-texture" color="#78552B" height="0.7" radius="0.33" position="1 0.4 -1"></a-cylinder>
       <a-cylinder id="seat" color="#78552B" height="0.2" radius="0.2" position="0 0.6 -0"></a-cylinder>
 
       <!-- a-sky color="#ECECEC"></a-sky -->
