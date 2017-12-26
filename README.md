@@ -17,11 +17,11 @@
 此外还有与真实模型的对比。
 
 ## 3. 应用设计过程
-3.1，在网上寻找相应的架子鼓模型（参考 [架子鼓模型](https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b) ），初步设计架子鼓的样子，并利用A-Frame的Entity-Component-System中的基础的元素，如圆柱体，圆面等，调整其位置，转角，大小等设计出原型。
+* 在网上寻找相应的架子鼓模型（参考 [架子鼓模型](https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b) ），初步设计架子鼓的样子，并利用A-Frame的Entity-Component-System中的基础的元素，如圆柱体，圆面等，调整其位置，转角，大小等设计出原型。
 
-3.2，对Cymbal和Drum进行贴图，添加声音、动画，使其与用户能够产生初步互动。
+* 对Cymbal和Drum进行贴图，添加声音、动画，使其与用户能够产生初步互动。
 
-3.3，完善场景设计，引用开源的Environment模块加入森林场景；导入真实的架子鼓模型
+* 完善场景设计，引用开源的Environment模块加入森林场景；导入真实的架子鼓模型
 
 ## 4. 应用成果展示
 成果可在[VR-Homework](https://vr-homework.glitch.me/) 在线体验
