@@ -5,46 +5,117 @@
     <meta name="HW" content="VR homework based on A-Frame">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.7/howler.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
-     <a-scene>
-      
+     <a-scene environment="preset: forest">
+     <!--a-scene-->
       <!-- Asset management system. -->
       <a-assets>
-        <!-- a-asset-item id="drum-kit" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-set/scene.gltf"></a-asset-item -->
-        <!-- audio id="home" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/story.mp3" preload="auto"></audio-->
+        <a-asset-item id="drum-kit" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-set/scene.gltf"></a-asset-item>
+        <!--audio id="story" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/story.mp3" preload="auto"></audio-->
         <img id="drum-texture" src="https://cdn.glitch.com/eb8fa426-390f-42da-bde2-b041aefa385f%2Fdrum-texture.png?1514223820171">
+        <img id="cymbal-texture" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/drum-kit-threejs/archmodels67_22_cymbal_bump.jpg">
+        
+        <audio id="shi-hat" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/hi-hat.mp3"></audio>
+        <audio id="scrash" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/crash.mp3"></audio>
+        <audio id="sride" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/ride.mp3"></audio>
+        <audio id="stom1" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom1.mp3"></audio>
+        <audio id="stom2" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom2.mp3"></audio>
+        <audio id="ssnare" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/snare.mp3"></audio>
+        <audio id="skick" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/kick.mp3"></audio>
+        <audio id="sfloor" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/floor.mp3"></audio>
       </a-assets>
       
       <!-- Scene. -->      
-      <a-plane color="#2EA9DF" height="20" width="20" rotation="-90 0 0"></a-plane>
-      
-      <a-cylinder color="#884C3A" height="1.6" radius="0.02" position="-0.9 0.8 -0.6"></a-cylinder>
-      <a-cylinder color="#884C3A" height="1.8" radius="0.02" position="-0.5 0.9 -1.25"></a-cylinder>
-      <a-cylinder color="#884C3A" height="1.6" radius="0.02" position="1.0 0.8 -1.5"></a-cylinder>
-      <a-cylinder color="#884C3A" height="1.8" radius="0.02" position="1.4 0.9 -1.2"></a-cylinder>
+      <!--a-plane color="#2EA9DF" height="20" width="20" rotation="-90 0 0"></a-plane-->
        
-
-
-      <a-circle radius="0.2" rotation="-90 0 0" position="-0.9 1.5 -0.6"></a-circle>      
-      <a-circle radius="0.35" rotation="-70 10 -10" position="-0.5 1.8 -1.25"></a-circle>
-      <a-circle radius="0.4" rotation="-70 -30 20" position="1.0 1.6 -1.5"></a-circle>
-      <a-circle radius="0.35" rotation="-70 -40 -25" position="1.4 1.8 -1.2"></a-circle>
+      <!-- https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b -->
       
-      <a-cylinder id="drum1" src="#drum-texture" color="#78552B" height="0.5" radius="0.3" position="-0.4 0.8 -1" rotation="10 -10 -10"></a-cylinder>
-      <a-cylinder id="drum2" src="#drum-texture" color="#78552B" height="0.6" radius="0.35" position="0.3 0.4 -1.4" rotation="-90 -5 0"></a-cylinder>
-      <a-cylinder id="drum2-1" src="#drum-texture" color="#78552B" height="0.4" radius="0.2" position="0.1 0.95 -1.8" rotation="20 -10 -10"></a-cylinder>
-      <a-cylinder id="drum2-2" src="#drum-texture" color="#78552B" height="0.4" radius="0.22" position="0.6 0.95 -1.6" rotation="20 30 20"></a-cylinder>
-      <a-cylinder id="drum3" src="#drum-texture" color="#78552B" height="0.7" radius="0.33" position="1 0.4 -1"></a-cylinder>
+      <a-cylinder color="#884C3A" height="1.6" radius="0.02" position="-0.9 0.8 -0.6">
+        <!--a-circle id="Hi-hat" src="#cymbal-texture" radius="0.35" rotation="-90 0 0" position="0 0.7 0" side="double"></a-circle-->
+          <a-entity id="Hi-hat" rotation="-90 0 0" position="0 0.7 0"
+                    geometry="primitive: circle; radius: 0.35"
+                    material="src: #cymbal-texture; side: double"
+                    sound="on: click; src: #shi-hat">
+            <a-animation attribute="rotation" begin="click" direction="alternate" dur="30" to="-80 -5 -5" repeat="3"></a-animation>
+          </a-entity>
+      </a-cylinder>
+       
+      <a-cylinder color="#884C3A" height="1.8" radius="0.02" position="-0.5 0.9 -1.35">
+        <a-entity id="Crash-Cymbal" rotation="-55 10 -10" position="0 0.9 0"
+                  geometry="primitive: circle; radius: 0.4"
+                  material="src: #cymbal-texture; side: double"
+                  sound="on: click; src: #scrash">
+          <a-animation attribute="rotation" begin="click" direction="alternate" dur="300" to="-50 20 -5" repeat="1"></a-animation>
+        </a-entity>
+      </a-cylinder>
+       
+      <a-cylinder color="#884C3A" height="1.8" radius="0.02" position="1.4 0.9 -1.2">
+        <a-entity id="Ride-Cymbal" rotation="-60 -40 -25" position="0 0.9 0"
+                  geometry="primitive: circle; radius: 0.35"
+                  material="src: #cymbal-texture; side: double"
+                  sound="on: click; src: #sride">
+          <a-animation attribute="rotation" begin="click" direction="alternate" dur="100" to="-55 -40 -30" repeat="1"></a-animation>
+        </a-entity>      
+      </a-cylinder>
+      
+      <!--a-cylinder id="snare-drum" src="#drum-texture" height="0.5" radius="0.3" position="-0.4 0.8 -1" rotation="10 -10 -10"></a-cylinder-->
+      <a-entity id="snare-drum" position="-0.4 0.8 -1" rotation="10 -10 -10"
+                geometry="primitive: cylinder; height: 0.5; radius: 0.3"
+                material="src: #drum-texture"
+                sound="on: click; src: #ssnare">
+        <a-animation attribute="position" direction="alternate" dur="2500" repeat="indefinite"
+          to="-0.4 0.85 -1"></a-animation>
+      </a-entity>
+       
+      <!--a-cylinder id="kick-drum" src="#drum-texture" height="0.6" radius="0.4" position="0.3 0.4 -1.4" rotation="-90 -5 0"></a-cylinder-->
+      <a-entity id="kick-drum" position="0.3 0.45 -1.4" rotation="-90 -5 0"
+                geometry="primitive: cylinder; height: 0.6; radius: 0.4"
+                material="src: #drum-texture"
+                sound="on: click; src: #skick">
+        <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
+          to="0.3 0.45 -1.35"></a-animation>
+      </a-entity>     
+       
+      <!--a-cylinder id="Tom-Tom1" src="#drum-texture" height="0.4" radius="0.2" position="0.1 0.95 -1.8" rotation="44.07 42.284 28.934"></a-cylinder-->
+      <a-entity id="Tom-Tom1" position="0.1 1.0 -1.8" rotation="44.07 42.284 28.934"
+                geometry="primitive: cylinder; height: 0.4; radius: 0.2"
+                material="src: #drum-texture"
+                sound="on: click; src: #stom1">
+        <a-animation attribute="position" direction="alternate" dur="2500" repeat="indefinite"
+          to="0.1 0.95 -1.8"></a-animation>
+      </a-entity>       
+       
+      <!--a-cylinder id="Tom-Tom2" src="#drum-texture" height="0.4" radius="0.2" position="0.6 0.95 -1.6" rotation="35 -30 20"></a-cylinder-->
+      <a-entity id="Tom-Tom2" position="0.6 0.95 -1.6" rotation="35 -30 20"
+                geometry="primitive: cylinder; height: 0.4; radius: 0.2"
+                material="src: #drum-texture"
+                sound="on: click; src: #stom2">
+        <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
+          to="0.6 1.0 -1.6"></a-animation>
+      </a-entity>         
+       
+      <!--a-cylinder id="floor-drum" src="#drum-texture" height="1" radius="0.33" position="1 0.8 -1"></a-cylinder-->
+      <a-entity id="floor-drum" position="1 0.8 -1"
+                geometry="primitive: cylinder; height: 1; radius: 0.33"
+                material="src: #drum-texture"
+                sound="on: click; src: #sfloor">
+        <a-animation attribute="position" direction="alternate" dur="1500" repeat="indefinite"
+          to="1 0.85 -1"></a-animation>
+      </a-entity>   
+       
       <a-cylinder id="seat" color="#78552B" height="0.2" radius="0.2" position="0 0.6 -0"></a-cylinder>
+      
 
       <!-- a-sky color="#ECECEC"></a-sky -->
-      <a-entity id="rain" particle-system="preset: rain; color: #24CAFF; particleCount: 5000"></a-entity>
+      <!--a-entity id="rain" particle-system="preset: rain; color: #24CAFF; particleCount: 5000"></a-entity-->
+       
+      <a-text value="Simple Drum-kit" color="#F05E1C" position="-1 3 -3" scale="2 2 2"></a-text>
       
       <a-entity id="sky" geometry="primitive: sphere; radius: 5000"
                 material="shader: gradient; topColor: 235 235 245; bottomColor: 185 185 210"
@@ -52,8 +123,10 @@
 
       <a-entity id="light" light="type: ambient; color: #888"></a-entity>
       
-      <!-- a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0.2 -1.5" rotation=""-->
-      <a-camera><a-cursor position="0 0 -0.5"></a-cursor></a-camera>
+      <!--a-entity sound="src: #story"></a-entity-->
+      <a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0 2"></a-entity>
+      <a-camera position="0 -0.5 0"><a-cursor position="0 0 -0.6"></a-cursor></a-camera>
+       
         
     </a-scene>
   </body>
