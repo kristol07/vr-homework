@@ -1,7 +1,6 @@
-# 虚拟现实技术及应用课程大作业
-# -- _基于A-frame的简易架子鼓VR实现_
+#  _基于A-frame的简易架子鼓VR实现_
 
-## 作者：刘林 学号：SY1624106
+## 作者：刘林  /&nbsp;  学号：SY1624106
 
 ## 1. A-Frame开发框架
 > A web framework for building virtual reality experiences. Make WebVR with HTML and Entity-Component. Works on Vive, Rift, desktop, mobile platforms.
