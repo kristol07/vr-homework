@@ -28,9 +28,9 @@
 
 在电脑中观看效果如下：
 图1：![pic1](https://github.com/Joelliu/vr-homework/blob/master/result/pic1.png?raw=true)
-图2：![pic2]()
+图2：![pic2](https://github.com/Joelliu/vr-homework/blob/master/result/pic2.png?raw=true)
 在电脑网页打开的情况下，使用快捷键Ctrl+Alt+I可以打开A-Frame的Inspector工具，效果如下：
-图3：![pic3]()
+图3：![pic3](https://github.com/Joelliu/vr-homework/blob/master/result/pic3.png?raw=true)
 
 除了观看之外，还能够移动光标点击乐器器件使其发出相应的位置变化和声音信息。
 
