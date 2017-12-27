@@ -10,6 +10,9 @@
     <!-- script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script-->
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
   </head>
   <body>
      <a-scene environment="preset: forest">
@@ -18,8 +21,12 @@
       <a-assets>
         <a-asset-item id="drum-kit" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-set/scene.gltf"></a-asset-item>
         
-        <img id="drum-texture" src="https://cdn.glitch.com/eb8fa426-390f-42da-bde2-b041aefa385f%2Fdrum-texture.png?1514223820171">
-        <img id="cymbal-texture" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/drum-kit-threejs/archmodels67_22_cymbal_bump.jpg">
+        <img id="drum-texture" src="https://cdn.glitch.com/eb8fa426-390f-42da-bde2-b041aefa385f%2Fdrum-texture.png?1514223820171" preload="true">
+        <img id="cymbal-texture" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/drum-kit-threejs/archmodels67_22_cymbal_bump.jpg" preload="true">
+        
+        <img id="phome" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/pic/home.jpg" preload="true">
+        <img id="pstory" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/pic/story.jpg" preload="true">
+        <img id="plove" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/pic/love.jpg" preload="true">
         
         <audio id="shi-hat" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/hi-hat.mp3" preload="auto"></audio>
         <audio id="scrash" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/crash.mp3" preload="auto"></audio>
@@ -29,7 +36,23 @@
         <audio id="ssnare" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/snare.mp3" preload="auto"></audio>
         <audio id="skick" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/kick.mp3" preload="auto"></audio>
         <audio id="sfloor" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/floor.mp3" preload="auto"></audio>
+        
         <audio id="story" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/assets/story.mp3" preload="auto"></audio>
+        <audio id="home" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/assets/home.mp3" preload="auto"></audio>
+        <audio id="love" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/assets/love.mp3" preload="auto"></audio>
+        
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}; side: double"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+        
       </a-assets>
       
       <!-- Scene. -->      
@@ -110,7 +133,7 @@
           to="1 0.85 -1"></a-animation>
       </a-entity>   
        
-      <a-cylinder id="seat" color="#78552B" height="0.2" radius="0.2" position="0 0.6 -0"></a-cylinder>
+      <a-cylinder id="seat" color="#78552B" height="0.1" radius="0.2" position="0 0.55 -0"></a-cylinder>
       
 
       <!-- a-sky color="#ECECEC"></a-sky -->
@@ -124,12 +147,49 @@
 
       <a-entity id="light" light="type: ambient; color: #888"></a-entity>
       
-      <a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0 2"
-                sound="src: #story; autoplay: true; loop: true; volume: 0.2"></a-entity>
+      <a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0 2">
+       <a-box id="model" position="0 3.5 2" color="#DC9FB4" 
+              sound="src: #story; loop: true; volume: 1"></a-box>
+      </a-entity>
+       
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-2 3.5 3">
+        <a-entity id="pstoryp" template="src: #link" data-thumb="#pstory"></a-entity>
+        <a-entity id="phomep" template="src: #link" data-thumb="#phome"></a-entity>
+        <a-entity id="plovep" template="src: #link" data-thumb="#plove"></a-entity>
+      </a-entity>
        
       <a-camera position="0 -0.5 0"><a-cursor position="0 0 -0.6"></a-cursor></a-camera>
        
         
     </a-scene>
+    
+    <script>
+    var drum = document.querySelector('#model');  
+    var story = document.querySelector('#pstoryp');
+    var home = document.querySelector('#phomep');
+    var love = document.querySelector('#plovep');
+      
+    drum.addEventListener('mouseenter', function () {
+    drum.components.sound.playSound();
+    });
+      
+    story.addEventListener('click', function () {
+    drum.setAttribute('sound', {src: '#story'});
+    });   
+      
+    home.addEventListener('click', function () {
+    drum.setAttribute('sound', {src: '#home'});
+    });    
+      
+    love.addEventListener('click', function () {
+    drum.setAttribute('sound', {src: '#love'});
+    });    
+      
+    drum.addEventListener('click', function () {
+    drum.components.sound.stopSound();
+    });
+    </script>
+    
   </body>
 </html>
