@@ -7,9 +7,10 @@
 
 简单地说，A-Frame就是一个在web上用来实现3D和虚拟现实体验的开源框架，官方网站：[A-Frame](https://aframe.io/)
 
-一些比较有名的项目包括：
+一些比较有意思的项目包括：
 * A-Painter: 在网页中实现虚拟现实画画，详见 [A-Painter](https://github.com/aframevr/a-painter)，
 * aframe-audioanalyser-component: 虚拟现实下的音频可视化，详见 [Audioanalyser](https://github.com/ngokevin/kframe/tree/master/components/audioanalyser/)
+* [Minecraft简略版](https://css-tricks.com/minecraft-webvr-html-using-frame/)
 
 ## 2. 应用功能介绍
 - 基于A-Frame简单实现了架子鼓的虚拟现实体验，用户可以通过光标点击乐器，并听到乐器的变化及听到其发出相应的乐器声音；
