@@ -176,14 +176,17 @@
       
     story.addEventListener('click', function () {
     drum.setAttribute('sound', {src: '#story'});
+    drum.components.sound.playSound();
     });   
       
     home.addEventListener('click', function () {
     drum.setAttribute('sound', {src: '#home'});
+    drum.components.sound.playSound();
     });    
       
     love.addEventListener('click', function () {
     drum.setAttribute('sound', {src: '#love'});
+    drum.components.sound.playSound();
     });    
       
     drum.addEventListener('click', function () {
