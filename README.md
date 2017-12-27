@@ -17,13 +17,13 @@
 - 实现简单的点歌（切换歌曲）功能，用户点击真实架子鼓模型上方的任一张图片，可将播放歌曲切换成相应歌曲。
 
 ## 3. 应用设计过程
-* 在网上寻找相应的架子鼓模型（参考 [架子鼓模型](https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b) ），初步设计架子鼓的样子，并利用A-Frame的Entity-Component-System中的基础的元素，如圆柱体，圆面等，调整其位置，转角，大小等设计出原型。
+* 在网上寻找相应的架子鼓模型（参考 [架子鼓模型](https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b) ），初步设计架子鼓的样子，并利用A-Frame的Entity-Component-System中的基础的元素，如圆柱体，圆面等，调整其位置，转角，大小等设计出原型；
 
-* 对Cymbal和Drum进行贴图，添加声音、动画，使其与用户能够产生初步互动。
+* 对Cymbal和Drum进行贴图，添加声音、动画，使其与用户能够产生初步互动；
 
-* 完善场景设计，引用开源的Environment模块加入森林场景；导入真实的架子鼓模型
+* 完善场景设计，引用开源的Environment模块加入森林场景；导入真实的架子鼓模型；
 
-* 参考[原有项目](https://bird-error.glitch.me/)，设计实现音乐播放器功能
+* 参考[原有项目](https://bird-error.glitch.me/)的代码，实现图片点击动画，再利用框架的sound元素设计实现简单的音乐播放器功能。
 
 ## 4. 应用成果展示
 成果可在[VR-Homework](https://vr-homework.glitch.me/) 在线体验
@@ -32,27 +32,29 @@
 
 ![pic1](https://github.com/Joelliu/vr-homework/blob/master/result/pic1.png?raw=true)
 
-![pic2](https://github.com/Joelliu/vr-homework/blob/master/result/pic2.png?raw=true)
+![pic2](https://github.com/Joelliu/vr-homework/blob/master/result/pic4.png?raw=true)
 
 在电脑网页打开的情况下，使用快捷键Ctrl+Alt+I可以打开A-Frame的Inspector工具，效果如下：
 
-![pic3](https://github.com/Joelliu/vr-homework/blob/master/result/pic3.png?raw=true)
+![pic3](https://github.com/Joelliu/vr-homework/blob/master/result/pic5.png?raw=true)
 
-除了观看之外，还能够移动光标点击乐器器件使其发出相应的位置变化和声音信息。且网页在加载成功后会自动播放音乐。
+除了观看之外，还能够移动光标点击乐器器件使其发出相应的位置变化和声音信息。
+
+且网页在加载成功后，将光标移至真实模型旁的粉红色方块上网页将会自动播放音乐，点击上方的任一图片可以实现切换歌曲。
 
 还可以用手机浏览器打开网站，在加载成功后点击右下角的Cardboard图标，即可用虚拟现实眼镜设备观看。
 
 ## 5. 总结
-实现了VR下的简单架子鼓功能。
+实现了VR下的简单架子鼓功能和音乐播放器功能。
 
 可能存在的问题：
 + 手机浏览器情况下加载较慢，可能是 glitch.com 网页的原因；
 + 加载出来的场景观看时移动反应很慢，Environment模块、音频、图片都需要加载，文件太大导致性能不是很好；
-+ 无法听到背景音乐，打击乐器也无法听到声音；
++ 无法播放音乐、切换歌曲，打击乐器也无法听到声音；
 + 电脑浏览器情况下观看正常，但是无法实现cardboard模式。
 
 缺点：
-- 缺乏更多的交互操作，用户只能固定在一个位置不能移动，且只能用光标一次点击一个，不能实现乐器的完整功能；
+- 缺乏更多的交互操作，用户只能固定在一个位置不能移动，且只能用光标一次点击一个，不能实现架子鼓的完整功能；
 - 模型制作效果简陋，和真实模型差距较大。
 
 ## 6. 代码解释
@@ -70,7 +72,6 @@
 <a-scene>
   
 <a-animation>这里是实现动画和互动的功能，包括击鼓发出声音，以及鼓位置、转动变化</a-animation>
+  
+<script>最后的javascript代码参考了原有项目(见应用设计过程介绍)的一些代码（初学者并不熟悉javascript）,增强应用互动特性，实现播放、暂停、切换歌曲功能</script>
 ```
-
-
-
