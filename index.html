@@ -4,10 +4,10 @@
     <title>VR homework based on A-Frame</title>
     <meta name="HW" content="VR homework based on A-Frame">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <!-- script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script-->
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
   </head>
@@ -17,18 +17,19 @@
       <!-- Asset management system. -->
       <a-assets>
         <a-asset-item id="drum-kit" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/drum-set/scene.gltf"></a-asset-item>
-        <!--audio id="story" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/story.mp3" preload="auto"></audio-->
+        
         <img id="drum-texture" src="https://cdn.glitch.com/eb8fa426-390f-42da-bde2-b041aefa385f%2Fdrum-texture.png?1514223820171">
         <img id="cymbal-texture" src="https://raw.githubusercontent.com/Joelliu/vr-homework/master/assets/drum-kit-threejs/archmodels67_22_cymbal_bump.jpg">
         
-        <audio id="shi-hat" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/hi-hat.mp3"></audio>
-        <audio id="scrash" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/crash.mp3"></audio>
-        <audio id="sride" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/ride.mp3"></audio>
-        <audio id="stom1" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom1.mp3"></audio>
-        <audio id="stom2" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom2.mp3"></audio>
-        <audio id="ssnare" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/snare.mp3"></audio>
-        <audio id="skick" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/kick.mp3"></audio>
-        <audio id="sfloor" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/floor.mp3"></audio>
+        <audio id="shi-hat" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/hi-hat.mp3" preload="auto"></audio>
+        <audio id="scrash" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/crash.mp3" preload="auto"></audio>
+        <audio id="sride" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/ride.mp3" preload="auto"></audio>
+        <audio id="stom1" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom1.mp3" preload="auto"></audio>
+        <audio id="stom2" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/tom2.mp3" preload="auto"></audio>
+        <audio id="ssnare" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/snare.mp3" preload="auto"></audio>
+        <audio id="skick" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/kick.mp3" preload="auto"></audio>
+        <audio id="sfloor" src="https://cdn.rawgit.com/Joelliu/vr-homework/master/assets/sound/mp3/floor.mp3" preload="auto"></audio>
+        <audio id="story" src="https://cdn.rawgit.com/Joelliu/vr-homework-source/master/assets/story.mp3" preload="auto"></audio>
       </a-assets>
       
       <!-- Scene. -->      
@@ -101,8 +102,8 @@
       </a-entity>         
        
       <!--a-cylinder id="floor-drum" src="#drum-texture" height="1" radius="0.33" position="1 0.8 -1"></a-cylinder-->
-      <a-entity id="floor-drum" position="1 0.8 -1"
-                geometry="primitive: cylinder; height: 1; radius: 0.33"
+      <a-entity id="floor-drum" position="1 0.7 -1"
+                geometry="primitive: cylinder; height: 0.8; radius: 0.33"
                 material="src: #drum-texture"
                 sound="on: click; src: #sfloor">
         <a-animation attribute="position" direction="alternate" dur="1500" repeat="indefinite"
@@ -123,8 +124,9 @@
 
       <a-entity id="light" light="type: ambient; color: #888"></a-entity>
       
-      <!--a-entity sound="src: #story"></a-entity-->
-      <a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0 2"></a-entity>
+      <a-entity gltf-model="#drum-kit" scale="0.4 0.4 0.4" position="0 0 2"
+                sound="src: #story; autoplay: true; loop: true; volume: 0.2"></a-entity>
+       
       <a-camera position="0 -0.5 0"><a-cursor position="0 0 -0.6"></a-cursor></a-camera>
        
         
