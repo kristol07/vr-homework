@@ -12,8 +12,9 @@
 * aframe-audioanalyser-component: 虚拟现实下的音频可视化，详见 [Audioanalyser](https://github.com/ngokevin/kframe/tree/master/components/audioanalyser/)
 
 ## 2. 应用功能介绍
-基于A-Frame简单实现了架子鼓的虚拟现实体验，用户可以通过光标点击乐器，并听到乐器的变化及听到其发出相应的乐器声音。
-此外还有与真实模型的对比。
+- 基于A-Frame简单实现了架子鼓的虚拟现实体验，用户可以通过光标点击乐器，并听到乐器的变化及听到其发出相应的乐器声音；
+- 实现简单的播放器功能，用户将光标移动到真实架子鼓模型旁的粉红色方块上网页将自动播放音乐，点击方块实现暂停，移出再移入可重新播放；
+- 实现简单的点歌（切换歌曲）功能，用户点击真实架子鼓模型上方的任一张图片，可将播放歌曲切换成相应歌曲。
 
 ## 3. 应用设计过程
 * 在网上寻找相应的架子鼓模型（参考 [架子鼓模型](https://sketchfab.com/models/3ed0f09afae546c3b6b2ac6816259b5b) ），初步设计架子鼓的样子，并利用A-Frame的Entity-Component-System中的基础的元素，如圆柱体，圆面等，调整其位置，转角，大小等设计出原型。
@@ -21,6 +22,8 @@
 * 对Cymbal和Drum进行贴图，添加声音、动画，使其与用户能够产生初步互动。
 
 * 完善场景设计，引用开源的Environment模块加入森林场景；导入真实的架子鼓模型
+
+* 参考[原有项目](https://bird-error.glitch.me/)，设计实现音乐播放器功能
 
 ## 4. 应用成果展示
 成果可在[VR-Homework](https://vr-homework.glitch.me/) 在线体验
