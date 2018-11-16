@@ -1,7 +1,5 @@
 #  _基于A-frame的简易架子鼓和音乐播放器VR实现_
 
-## 作者：刘林
-
 ## 1. A-Frame开发框架
 > A web framework for building virtual reality experiences. Make WebVR with HTML and Entity-Component. Works on Vive, Rift, desktop, mobile platforms.
 
